@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.encoding import smart_unicode
+from django.contrib import admin
 
 # Create your models here.
 
@@ -14,3 +15,11 @@ class registrado(models.Model):
 
 	def __unicode__(self):
 		return smart_unicode(self.nombre,'',self.apellido)
+
+
+
+class AdminRegistrado(admin.ModelAdmin):
+	class Meta:
+		model = registrado
+
+admin.site.register(registrado,AdminRegistrado)
